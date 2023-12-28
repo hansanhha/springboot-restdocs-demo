@@ -1,4 +1,4 @@
-package com.study.restdocs;
+package com.study.restdocs.basic;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;

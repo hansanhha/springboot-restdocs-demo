@@ -1,4 +1,4 @@
-package com.study.restdocs;
+package com.study.restdocs.basic;
 
 import com.study.restdocs.basic.controller.HomeController;
 import org.assertj.core.api.Assertions;
