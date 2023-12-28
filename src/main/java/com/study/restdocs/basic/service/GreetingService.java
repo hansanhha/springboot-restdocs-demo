@@ -1,4 +1,4 @@
-package com.study.restdocs.service;
+package com.study.restdocs.basic.service;
 
 import org.springframework.stereotype.Service;
 

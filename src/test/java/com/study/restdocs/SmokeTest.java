@@ -1,6 +1,6 @@
 package com.study.restdocs;
 
-import com.study.restdocs.controller.HomeController;
+import com.study.restdocs.basic.controller.HomeController;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

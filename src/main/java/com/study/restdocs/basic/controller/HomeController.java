@@ -1,6 +1,6 @@
-package com.study.restdocs.controller;
+package com.study.restdocs.basic.controller;
 
-import com.study.restdocs.service.GreetingService;
+import com.study.restdocs.basic.service.GreetingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
