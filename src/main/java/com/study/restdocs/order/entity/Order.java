@@ -8,7 +8,7 @@ import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+@Entity(name = "orders")
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Order {

@@ -9,6 +9,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class OrderSaveRequest {
 
+    public static OrderSaveRequest create(String userId, Double price, int quantity) {
+        return new OrderSaveRequest(userId, price, quantity);
+    }
+
     @JsonProperty("user_id")
     private final String userId;
 

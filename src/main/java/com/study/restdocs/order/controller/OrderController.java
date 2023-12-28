@@ -8,6 +8,7 @@ import com.study.restdocs.order.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,9 +19,9 @@ public class OrderController {
 
     private final OrderService orderService;
 
-    @GetMapping(path = "/orders")
+    @GetMapping(path = "/orders", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<OrderPageResponse> getAllOrders(Pageable pageable) {
-        return ResponseEntity.ok().body(orderService.getOrders(pageable));
+        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(orderService.getOrders(pageable));
     }
 
     @GetMapping(path = "/orders/{id}")

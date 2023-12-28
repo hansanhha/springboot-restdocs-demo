@@ -13,6 +13,10 @@ import java.util.List;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class OrderPageResponse {
 
+    public static OrderPageResponse create(List<OrderResponse> orders, Boolean isFirst, Boolean isLast, Boolean hasNext, int size) {
+        return new OrderPageResponse(orders, isFirst, isLast, hasNext, size);
+    }
+
     public static OrderPageResponse from(Page<Order> orders) {
         return new OrderPageResponse(
                 orders.stream()
