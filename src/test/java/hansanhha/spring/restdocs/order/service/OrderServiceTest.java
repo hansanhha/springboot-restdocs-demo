@@ -34,7 +34,7 @@ public class OrderServiceTest {
     @InjectMocks
     private OrderService orderService;
 
-    private List<Order> orders = new ArrayList<>();
+    private final List<Order> orders = new ArrayList<>();
 
     @BeforeEach
     void setUp() {

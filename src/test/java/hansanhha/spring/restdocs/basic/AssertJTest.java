@@ -7,7 +7,7 @@ public class AssertJTest {
 
 
     @Test
-    void test1() {
+    void assertThatTest() {
         int a = 1;
         int b = 2;
         int sum = a + b;
