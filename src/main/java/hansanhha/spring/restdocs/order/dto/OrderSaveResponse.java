@@ -10,6 +10,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class OrderSaveResponse {
 
+    public static OrderSaveResponse create(Long orderId) {
+        return new OrderSaveResponse(orderId);
+    }
+
     @JsonProperty("order_id")
     private final Long orderId;
 

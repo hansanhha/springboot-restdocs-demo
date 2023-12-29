@@ -35,12 +35,13 @@ public class OrderService {
 
     public boolean deleteOrder(Long id) {
         Optional<Order> orderOptional = orderRepository.findById(id);
-        if (orderOptional.isPresent()) {
-            orderRepository.delete(orderOptional.get());
-            return true;
-        } else {
+
+        if (orderOptional.isEmpty()) {
             throw OrderNotFoundException.create(id);
         }
+
+        orderRepository.delete(orderOptional.get());
+        return false;
     }
 
     public OrderSaveResponse createOrder(OrderSaveRequest saveRequest) {

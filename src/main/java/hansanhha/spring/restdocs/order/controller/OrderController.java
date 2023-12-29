@@ -24,21 +24,21 @@ public class OrderController {
         return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(orderService.getOrders(pageable));
     }
 
-    @GetMapping(path = "/orders/{id}")
+    @GetMapping(path = "/orders/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<OrderResponse> getOrderById(@PathVariable("id") Long id) {
-        return ResponseEntity.ok().body(orderService.getOrderById(id));
+        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(orderService.getOrderById(id));
     }
 
-    @PostMapping(path = "/order")
+    @PostMapping(path = "/order", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<OrderSaveResponse> saveOrder(@RequestBody OrderSaveRequest orderSaveRequest) {
         OrderSaveResponse  orderSaveResponse = orderService.createOrder(orderSaveRequest);
-        return ResponseEntity.status(HttpStatus.CREATED).body(orderSaveResponse);
+        return ResponseEntity.status(HttpStatus.CREATED).contentType(MediaType.APPLICATION_JSON).body(orderSaveResponse);
     }
 
-    @DeleteMapping(path = "/orders/{id}")
+    @DeleteMapping(path = "/orders/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> deleteOrder(@PathVariable("id") Long id) {
-        boolean deleted  = orderService.deleteOrder(id);
-        return ResponseEntity.ok().body("Order deleted successfully, id : " + id);
+        orderService.deleteOrder(id);
+        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body("Order deleted successfully, id : " + id);
     }
 
 }
