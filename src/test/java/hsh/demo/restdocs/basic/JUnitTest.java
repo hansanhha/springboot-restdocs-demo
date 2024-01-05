@@ -24,7 +24,7 @@ public class JUnitTest {
     @Test
     @Order(Integer.MAX_VALUE)
     void orderLastTest() {}
-    
+
     @DisplayName("반복 테스트")
     @RepeatedTest(value = 5, name = "{currentRepetition}/{totalRepetitions}")
     void repeatTest() {
