@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.2.1'
     id 'io.spring.dependency-management' version '1.1.4'
+    id 'org.asciidoctor.jvm.convert' version '4.0.0'
 }
 
 group = 'hsh.demo'
@@ -15,6 +16,7 @@ configurations {
     compileOnly {
         extendsFrom annotationProcessor
     }
+    asciidoctorExt // Declare the asciidoctorExt configuration for dependencies that extend Asciidoctor
 }
 
 repositories {
@@ -30,8 +32,35 @@ dependencies {
     runtimeOnly 'com.mysql:mysql-connector-j'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+    // Add  a dependency  on spring-restdocs-asciidoctor in the asciidoctorExt configuration
+    // This will automatically configure the snippets attribute for use in your .adoc file to point to build/generated-snippets
+    asciidoctorExt 'org.springframework.restdocs:spring-restdocs-asciidoctor'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+ext {
+    snippetsDir = file('build/generated-snippets') // Configure a snippetsDir property that defines the output location for generated snippets
+}
+
+test {
+    outputs.dir snippetsDir // Make Gradle aware that running the test task will write output to the snippetsDir
+}
+
+// Configure the asciidoctor task (https://docs.gradle.org/current/userguide/incremental_build.html)
+asciidoctor {
+    inputs.dir snippetsDir // Make Gradle aware that running the task will read input from the snippetsDir
+    configurations 'asciidoctorExt' // Configure the use of the asciidoctorExt configuration for extensions
+    dependsOn test // Make the task depend on the test task so that the tests are run before the documentation is created
+}
+
+// Configure the bootJar task to package the generated documentation into the jar file (before the jar is built)
+bootJar {
+    dependsOn asciidoctor // Ensure that the documentation has been generated before the jar is built
+    from ("${asciidoctor.outputDir}/html5") { // Copy the generated documentation into the jar's static/docs directory
+        into 'static/docs'
+    }
 }
