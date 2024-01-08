@@ -36,8 +36,3 @@ out/
 ### VS Code ###
 .vscode/
 
-### resources ###
-**/*.log
-**/*.yml
-**/*.yaml
-**/*.properties
