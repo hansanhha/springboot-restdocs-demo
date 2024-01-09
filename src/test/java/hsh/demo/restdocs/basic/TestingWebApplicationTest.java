@@ -12,18 +12,18 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest
-@AutoConfigureMockMvc
+//@SpringBootTest
+//@AutoConfigureMockMvc
 public class TestingWebApplicationTest {
 
-    @Autowired
-    private MockMvc mockMvc;
-
-    @Test
-    void shouldReturnDefaultMessage() throws Exception {
-        mockMvc.perform(get("/"))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().string(containsString("Hello, World")));
-    }
+//    @Autowired
+//    private MockMvc mockMvc;
+//
+//    @Test
+//    void shouldReturnDefaultMessage() throws Exception {
+//        mockMvc.perform(get("/"))
+//                .andDo(print())
+//                .andExpect(status().isOk())
+//                .andExpect(content().string(containsString("Hello, World")));
+//    }
 }

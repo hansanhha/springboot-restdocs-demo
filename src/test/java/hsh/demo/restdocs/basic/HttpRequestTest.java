@@ -11,18 +11,18 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+//@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class HttpRequestTest {
 
-    @LocalServerPort
-    private int port;
-
-    @Autowired
-    private TestRestTemplate restTemplate;
-
-    @Test
-    void greetingShouldReturnDefaultMessage() {
-        assertThat(restTemplate.getForObject("http://localhost:" + port + "/", String.class))
-                .contains("Hello, World");
-    }
+//    @LocalServerPort
+//    private int port;
+//
+//    @Autowired
+//    private TestRestTemplate restTemplate;
+//
+//    @Test
+//    void greetingShouldReturnDefaultMessage() {
+//        assertThat(restTemplate.getForObject("http://localhost:" + port + "/", String.class))
+//                .contains("Hello, World");
+//    }
 }

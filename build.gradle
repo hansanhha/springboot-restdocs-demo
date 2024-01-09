@@ -53,7 +53,7 @@ test {
 
 // Configure the asciidoctor task (https://docs.gradle.org/current/userguide/incremental_build.html)
 asciidoctor {
-    configurations 'asciidoctorExtensions' // Configure the use of the asciidoctorExt configuration for extensions
+    configurations "asciidoctorExtensions" // Configure the use of the asciidoctorExt configuration for extensions
     inputs.dir snippetsDir // Make Gradle aware that running the task will read input from the snippetsDir
     dependsOn test // Make the task depend on the test task so that the tests are run before the documentation is created
 }

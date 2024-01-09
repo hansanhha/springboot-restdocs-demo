@@ -1,0 +1,6 @@
+hsh:
+  demo:
+    restdocs:
+      notes:
+        NullOrNotBlank:
+          description: Must be null or not blank

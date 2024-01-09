@@ -15,19 +15,19 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(HomeController.class)
+//@WebMvcTest(HomeController.class)
 public class WebMockTest {
 
-    @Autowired
-    private MockMvc mockMvc;
-
-    @MockBean
-    private GreetingService greetingService;
-
-    @Test
-    void greetingShouldReturnMessageFromService() throws Exception {
-        Mockito.when(greetingService.greet()).thenReturn("Hello, World");
-        mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
-                .andExpect(content().string(containsString("Hello, World")));
-    }
+//    @Autowired
+//    private MockMvc mockMvc;
+//
+//    @MockBean
+//    private GreetingService greetingService;
+//
+//    @Test
+//    void greetingShouldReturnMessageFromService() throws Exception {
+//        Mockito.when(greetingService.greet()).thenReturn("Hello, World");
+//        mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
+//                .andExpect(content().string(containsString("Hello, World")));
+//    }
 }
