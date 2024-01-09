@@ -1,12 +1,12 @@
-package hsh.demo.restdocs.notes;
+package hsh.demo.restdocs.cafes;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-//@SpringBootApplication
-class RestNotesSpringHateoas {
+@SpringBootApplication
+public class CafeSpringApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RestNotesSpringHateoas.class, args);
+        SpringApplication.run(CafeSpringApplication.class, args);
     }
 }

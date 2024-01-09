@@ -1,0 +1,44 @@
+= Cafe API Documentation
+hansanhha;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+:operation-curl-request-title: request 예시
+:operation-http-response-title: response 예시
+
+[[introduction]]
+= introduction
+
+restdocs 연습용 API
+
+[[resource]]
+= resource
+
+[[resource_cafe]]
+== Cafes
+
+[[resource_cafe_create]]
+=== 카페 생성
+
+include::{snippets}/create-coffee/http-request.adoc[]
+include::{snippets}/create-coffee/http-response.adoc[]
+
+[[resource_coffee]]
+== Coffees
+
+[[resource_coffee_create]]
+=== 커피 생성
+
+operation::create-coffee[snippets='http-request,http-response']
+
+
+
+
+
+
+
+
+
