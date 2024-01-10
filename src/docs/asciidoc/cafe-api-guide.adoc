@@ -1,13 +1,13 @@
 = Cafe API Documentation
-hansanhha;
+cafe, coffee api docs
 :doctype: book
 :icons: font
 :source-highlighter: highlightjs
 :toc: left
 :toclevels: 4
 :sectlinks:
-:operation-curl-request-title: request 예시
-:operation-http-response-title: response 예시
+:operation-http-request-title: HTTP Request
+:operation-http-response-title: Http Response
 
 [[introduction]]
 = introduction
@@ -23,8 +23,9 @@ restdocs 연습용 API
 [[resource_cafe_create]]
 === 카페 생성
 
-include::{snippets}/create-coffee/http-request.adoc[]
-include::{snippets}/create-coffee/http-response.adoc[]
+operation::create-cafe[snippets='request-fields,http-response']
+
+[[resource_cafe_list]]
 
 [[resource_coffee]]
 == Coffees
@@ -32,7 +33,7 @@ include::{snippets}/create-coffee/http-response.adoc[]
 [[resource_coffee_create]]
 === 커피 생성
 
-operation::create-coffee[snippets='http-request,http-response']
+operation::create-coffee[snippets='request-fields,http-response']
 
 
 

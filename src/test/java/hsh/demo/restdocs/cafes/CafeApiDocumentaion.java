@@ -14,6 +14,8 @@ import org.springframework.restdocs.RestDocumentationContextProvider;
 import org.springframework.restdocs.RestDocumentationExtension;
 import org.springframework.restdocs.mockmvc.RestDocumentationResultHandler;
 import org.springframework.restdocs.payload.JsonFieldType;
+import org.springframework.restdocs.snippet.Attributes;
+import org.springframework.restdocs.templates.TemplateFormats;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
@@ -73,8 +75,8 @@ public class CafeApiDocumentaion {
                 .andExpect(jsonPath("$.id", is(notNullValue())))
                 .andDo(documentationHandler.document(
                         requestFields(
-                                fieldWithPath("name").type(JsonFieldType.STRING).description("커피 이름"),
-                                fieldWithPath("price").type(JsonFieldType.NUMBER).description("커피 가격")
+                                fieldWithPath("name").type(JsonFieldType.STRING).description("커피 이름").attributes(new Attributes.Attribute("constraints", "2자 이상 20자 이하")),
+                                fieldWithPath("price").type(JsonFieldType.NUMBER).description("커피 가격").attributes(new Attributes.Attribute("constraints", "1500원 이상"))
                         ),
                         responseFields(
                                 fieldWithPath("id").type(JsonFieldType.NUMBER).description("커피 ID")
@@ -93,8 +95,8 @@ public class CafeApiDocumentaion {
                 .andExpect(jsonPath("$.id", is(notNullValue())))
                 .andDo(documentationHandler.document(
                         requestFields(
-                                fieldWithPath("name").type(JsonFieldType.STRING).description("카페 이름"),
-                                fieldWithPath("address").type(JsonFieldType.STRING).description("카페 주소")
+                                fieldWithPath("name").type(JsonFieldType.STRING).description("카페 이름").attributes(new Attributes.Attribute("constraints", "2자 이상 20자 이하")),
+                                fieldWithPath("address").type(JsonFieldType.STRING).description("카페 주소").attributes(new Attributes.Attribute("constraints", "2자 이상 50자 이하"))
                         ),
                         responseFields(
                                 fieldWithPath("id").type(JsonFieldType.NUMBER).description("카페 ID")
